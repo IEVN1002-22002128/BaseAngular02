@@ -8,18 +8,19 @@
 
             </div>
             <div class="col-md-4">
-                <input type="text" name="form-control" placeholder="Filtrar heroe">
+                <input [(ngModel)]="listFiltro" type="text" name="form-control" placeholder="Filtrar heroe">
             </div>
             <div class="row">
                 <div class="col-md-6">
-                    <h3>Filtro:</h3>
+                    <h3>Filtro: {{listFiltro}}</h3>
                 </div>
             </div>
             <div class="table-responsive">
                 <table class="table table-striped" *ngIf="heroes.length>0">
                     <thead>
                         <tr>
-                            <th>imagen</th>
+                            <th><button (click)="showImg()" type="button" class="btn btn-primary">
+                                {{muestraImg?'Oculta':'Muestra'}}Imagen</button></th>
                             <th>Nombres</th>
                             <th>Descripcion</th>
                             <th>Especie</th>
@@ -28,8 +29,8 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let heroe of heroes">
-                            <td><img [src]="heroe.imagen" width="50"></td>
+                        <tr *ngFor="let heroe of heroes | heroesFilter:listFiltro">
+                            <td><img *ngIf="muestraImg" [src]="heroe.imagen" width="50"></td>
                             <td>{{heroe.nombre}}</td>
                             <td>{{heroe.descripcion}}</td>
                             <td>{{heroe.especie}}</td>
