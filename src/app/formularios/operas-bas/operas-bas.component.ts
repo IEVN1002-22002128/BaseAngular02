@@ -7,41 +7,42 @@ import { Component } from '@angular/core';
   styleUrl: './operas-bas.component.css'
 })
 export class OperasBasComponent {
-num1:string="";
-num2:string="";
-res:string="";
-tipOperacion:string="";
+  valorA: number = 0;
+  valorB: number = 0;
+  resultado: string = "";
+  operacionSel: string = "";
 
-sumar():void
-{
-  this.res=(parseInt(this.num1)+parseInt(this.num2)).toString();
-}
-restar():void
-{
-  this.res=(parseInt(this.num1)-parseInt(this.num2)).toString();
-}
-multiplicar():void
-{
-  this.res=(parseInt(this.num1)*parseInt(this.num2)).toString();
-}
-dividir():void
-{
-  this.res=(parseInt(this.num1)/parseInt(this.num2)).toString();
-}
-
-ejecutarOperacion()
-{
-  switch(this.tipOperacion)
-  {
-    case "0": this.sumar();
-    break;
-    case "1": this.restar();
-    break;
-    case "2": this.multiplicar();
-    break;
-    case "3": this.dividir();
-    break;
+  hacerSuma(): void {
+    this.resultado = (this.valorA + this.valorB).toString();
   }
-}
 
+  hacerResta(): void {
+    this.resultado = (this.valorA - this.valorB).toString();
+  }
+
+  hacerMultiplicacion(): void {
+    this.resultado = (this.valorA * this.valorB).toString();
+  }
+
+  hacerDivision(): void {
+    if (this.valorB === 0) {
+      this.resultado = "No se puede dividir entre 0";
+    } else {
+      this.resultado = (this.valorA / this.valorB).toString();
+    }
+  }
+
+  resolverOperacion(): void {
+    if (this.operacionSel === "suma") {
+      this.hacerSuma();
+    } else if (this.operacionSel === "resta") {
+      this.hacerResta();
+    } else if (this.operacionSel === "multi") {
+      this.hacerMultiplicacion();
+    } else if (this.operacionSel === "divi") {
+      this.hacerDivision();
+    } else {
+      this.resultado = "Selecciona una opción";
+    }
+  }
 }

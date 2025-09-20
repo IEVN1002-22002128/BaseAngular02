@@ -1,0 +1,27 @@
+<h1>CINÉPOLIS</h1>
+<div>
+  <form (ngSubmit)="calcular()">
+    <div>
+      <label>Nombre:</label><br>
+      <input type="text" [(ngModel)]="nombre" name="nombre"> <br><br>
+
+      <label>Cantidad de compradores:</label><br>
+      <input type="number" [(ngModel)]="compradores" name="compradores"> <br><br>
+
+      <label>Tarjeta Cinépolis:</label><br>
+      <input type="radio" [(ngModel)]="tarjeta" name="tarjeta" value="si"> Sí
+      <input type="radio" [(ngModel)]="tarjeta" name="tarjeta" value="no"> No <br><br>
+
+      <label>Cantidad de boletos:</label><br>
+      <input type="number" [(ngModel)]="boletos" name="boletos"> <br><br>
+
+      <button type="submit">Calcular</button>
+    </div>
+
+    <div>
+      <h3>Salida</h3>
+      <p>{{ mensaje }}</p>
+    </div>
+  </form>
+</div>
+

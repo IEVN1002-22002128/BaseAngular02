@@ -1,34 +1,30 @@
- <form>
+<form>
+  <div class="row">
     <div class="col-6">
-
       <div class="form-group pt-4">
-       <label for="num1" class="form-label">Numero 1</label>
-       <input type="text" class="form-control" id="num1" [(ngModel)]="num1" name="num1">
+        <label for="valorA" class="form-label">Valor A</label>
+        <input type="number" class="form-control" id="valorA" [(ngModel)]="valorA" name="valorA">
       </div>
 
       <div class="form-group pt-4">
-       <label for="num2" class="form-label">Numero 2</label>
-       <input type="text" class="form-control" id="num2" [(ngModel)]="num2" name="num2">
+        <label for="valorB" class="form-label">Valor B</label>
+        <input type="number" class="form-control" id="valorB" [(ngModel)]="valorB" name="valorB">
       </div>
 
       <div class="form-group">
-     <button class="btn btn-primary mt-3" (click)="ejecutarOperacion()">calcular</button>
-     
+        <button type="button" class="btn btn-success mt-3" (click)="resolverOperacion()">Obtener resultado</button>
+      </div>
     </div>
-    <div class="col-6">
-      <input type="radio" value="0" [(ngModel)]="tipOperacion" name="tipOperacion" id="tipOperacion">sumar<br>      
-      <input type="radio" value="1" [(ngModel)]="tipOperacion" name="tipOperacion" id="tipOperacion">restar <br>
-      <input type="radio" value="2" [(ngModel)]="tipOperacion" name="tipOperacion" id="tipOperacion"> multiplicar <br>
-      <input type="radio" value="3" [(ngModel)]="tipOperacion" name="tipOperacion" id="tipOperacion"> dividir <br>
-    </div>
-    
 
+    <div class="col-6 pt-4">
+      <label><input type="radio" value="suma" [(ngModel)]="operacionSel" name="operacionSel" id="suma"> Suma</label><br>
+      <label><input type="radio" value="resta" [(ngModel)]="operacionSel" name="operacionSel" id="resta"> Resta</label><br>
+      <label><input type="radio" value="multi" [(ngModel)]="operacionSel" name="operacionSel" id="multi"> Multiplicación</label><br>
+      <label><input type="radio" value="divi" [(ngModel)]="operacionSel" name="operacionSel" id="divi"> División</label><br>
     </div>
-    <div class="col-6">
-      <h1>Resultado: {{res}} </h1>
-    </div>
-    
-    
+  </div>
 
-    
-   </form>
+  <div class="col-12 pt-4">
+    <h2>El resultado es: {{resultado}}</h2>
+  </div>
+</form>
